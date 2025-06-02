@@ -1,4 +1,4 @@
-function graph = f_berechnet(N, l, S, C);
+function f_mode = f_berechnet(N, l, S, C);
 
 % Funktion zur Berechnung der Modenfrequenzen einer Metamaterialspule ueber die Birdcage-Regressionsformel
 % dazu Verwendung mehrerer Regressionsmodelle aus den vorher aufgenommen Messwerten
@@ -122,8 +122,8 @@ k_Standard = 0.0837200000000000;
 Omega_con = linspace(1,N-1);      % Modennummer Omega, kontinuierlich fuer den Graphen
 Omega_dis = 1:N-1;                % Modennummer Omega, diskret fuer die Moden-Frequenzen
 
-graph = 1/(2*pi).*sqrt((1./(L.*C./2)).*(2.*sin(pi.*Omega_con./(2.*N)).*sin(pi.*Omega_con./(2.*N))./(alpha+2.*sin(pi.*Omega_con./(2.*N)).*sin(pi.*Omega_con./(2.*N)).*(1+2.*k.*cos(pi.*Omega_con./N)))));
-f_mode = 1/(2*pi).*sqrt((1./(L.*C./2)).*(2.*sin(pi.*Omega_dis./(2.*N)).*sin(pi.*Omega_dis./(2.*N))./(alpha+2.*sin(pi.*Omega_dis./(2.*N)).*sin(pi.*Omega_dis./(2.*N)).*(1+2.*k.*cos(pi.*Omega_dis./N)))));
+graph = 1./(2.*pi).*sqrt((1./(L.*C./2)).*(2.*sin(pi.*Omega_con./(2.*N)).*sin(pi.*Omega_con./(2.*N))./(alpha+2.*sin(pi.*Omega_con./(2.*N)).*sin(pi.*Omega_con./(2.*N)).*(1+2.*k.*cos(pi.*Omega_con./N)))));
+f_mode = 1./(2.*pi).*sqrt((1./(L.*C./2)).*(2.*sin(pi.*Omega_dis./(2.*N)).*sin(pi.*Omega_dis./(2.*N))./(alpha+2.*sin(pi.*Omega_dis./(2.*N)).*sin(pi.*Omega_dis./(2.*N)).*(1+2.*k.*cos(pi.*Omega_dis./N)))));
 
 % Ergebnisse plotten
 fig1 = figure;
